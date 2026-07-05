@@ -38,24 +38,19 @@ function formatTime(timeInMs) {
     minutes: pad(minutes),
     seconds: pad(seconds),
     milliseconds: pad(milliseconds),
-    // Plain colon-joined string, used for the laps list
+ 
     text: `${pad(hours)} : ${pad(minutes)} : ${pad(seconds)} : ${pad(milliseconds)}`
   };
 }
 
-// ===========================
-// Render the digit display with colon separators
-// ===========================
+
 function renderDisplay(timeInMs) {
   const t = formatTime(timeInMs);
   displayEl.innerHTML =
     `${t.hours}<span class="colon">:</span>${t.minutes}<span class="colon">:</span>${t.seconds}<span class="colon">:</span>${t.milliseconds}`;
 }
 
-// ===========================
-// Update Display
-// Called on every interval tick to refresh the shown time
-// ===========================
+
 function updateDisplay() {
   const currentTime = Date.now() - startTimestamp + elapsedTime;
   renderDisplay(currentTime);
