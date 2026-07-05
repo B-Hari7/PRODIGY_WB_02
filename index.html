@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stopwatch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <main class="card">
+    <div class="header-row">
+      <h1 class="title">Stopwatch</h1>
+      <div class="status" id="status">
+        <span class="status-dot" id="statusDot"></span>
+        <span id="statusText">idle</span>
+      </div>
+    </div>
+
+    <!-- Time Display -->
+    <div class="display-panel">
+      <div class="scanlines"></div>
+      <div class="display" id="display" aria-live="polite">
+        00<span class="colon">:</span>00<span class="colon">:</span>00<span class="colon">:</span>00
+      </div>
+      <div class="display-labels">
+        <span>hrs</span><span>min</span><span>sec</span><span>ms</span>
+      </div>
+    </div>
+
+    <!-- Primary Controls: circular icon buttons -->
+    <div class="controls-circle">
+      <div class="circle-group">
+        <button id="startBtn" class="circle-btn circle-cyan" aria-label="Start">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+        <span class="circle-label">start</span>
+      </div>
+
+      <div class="circle-group">
+        <button id="pauseBtn" class="circle-btn circle-amber" aria-label="Pause" disabled>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+        </button>
+        <span class="circle-label">pause</span>
+      </div>
+
+      <div class="circle-group">
+        <button id="resumeBtn" class="circle-btn circle-cyan" aria-label="Resume" disabled>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+        <span class="circle-label">resume</span>
+      </div>
+
+      <div class="circle-group">
+        <button id="resetBtn" class="circle-btn circle-magenta" aria-label="Reset">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4v6h6M20 20v-6h-6"/><path d="M5.5 15a8 8 0 1 0 1-9.5L4 8M18.5 9a8 8 0 0 1-1 9.5L20 16"/></svg>
+        </button>
+        <span class="circle-label">reset</span>
+      </div>
+    </div>
+
+    <!-- Lap Button: full-width bar -->
+    <button id="lapBtn" class="lap-bar" disabled>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 3v18M5 4h9l-1.5 3.5L14 11H5"/></svg>
+      Record lap
+    </button>
+
+    <!-- Laps Section -->
+    <section class="laps-section">
+      <div class="laps-header">
+        <h2>Splits</h2>
+        <button id="clearLapsBtn" class="btn-clear">clear</button>
+      </div>
+      <ul id="lapsList" class="laps-list">
+        <!-- Lap items will be inserted here dynamically -->
+      </ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
